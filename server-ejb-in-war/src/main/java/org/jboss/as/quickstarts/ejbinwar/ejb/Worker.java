@@ -7,9 +7,14 @@ import java.util.Map;
 //public class Worker implements Runnable {
 public class Worker extends Thread {
 
-    Field f = new Field();
+    static Field f = new Field();
 
-    private void fillField() {
+    static {
+        fillField();
+        f.prepareToStart();
+    }
+
+    private static void fillField() {
         for (int ix = 4; ix <= 6; ++ix) {
             for (int iy = 4; iy <= 6; ++iy) {
                 f.addAlive(ix, iy);
@@ -17,26 +22,25 @@ public class Worker extends Thread {
         }
     }
 
-    
     @Override
     public void start() {
         // TODO Auto-generated method stub
-        if (f == null)
-            f = new Field();
-        fillField();
-        f.prepareToStart();
-        super.start();
+        if (f == null) {
+            System.out.println("f == null");
+        } else {
+            super.start();
+        }
     }
 
     @Override
     public void run() {
         // TODO Auto-generated method stub
-        while(true){
+        while (true) {
             f.makeStep();
             printField(f.getAliveOld());
             System.out.println("================================================");
             try {
-                Thread.sleep(2000);
+                Thread.sleep(5000);
             } catch (InterruptedException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
@@ -53,20 +57,24 @@ public class Worker extends Thread {
         int yMax = 10;
         //Map<Integer, Map<Integer, Point>> m = f.getAliveNew();
         for (int iy = 1; iy <= yMax; ++iy) {
+            String s = "";
             for (int ix = 1; ix <= xMax; ++ix) {
                 Map<Integer, Point> mX = m.get(ix);
                 if (mX == null) {
-                    System.out.print("-");
+                    //                    System.out.print("-");
+                    s += "-";
                 } else {
                     Point p = mX.get(iy);
                     if (p == null) {
-                        System.out.print("-");
+                        //                        System.out.print("-");
+                        s += "-";
                     } else {
-                        System.out.print("+");
+                        //                        System.out.print("+");
+                        s += "+";
                     }
                 }
             }
-            System.out.println("");
+            System.out.println(s);
         }
     }
 

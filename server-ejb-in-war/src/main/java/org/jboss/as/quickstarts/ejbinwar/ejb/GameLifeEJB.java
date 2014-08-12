@@ -26,13 +26,15 @@ import javax.ejb.Stateful;
 @Stateful
 public class GameLifeEJB {
 
-    Worker w;
+    static Worker w;
 
     public GameLifeEJB() {
         super();
         System.out.println("GameLifeEJB():   {");
-        w = new Worker();
-        w.start();
+        if (w == null) {
+            w = new Worker();
+            w.start();
+        }
         System.out.println("GameLifeEJB():   }");
     }
 
