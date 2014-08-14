@@ -3,31 +3,16 @@ package org.game.life.client;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.geom.Ellipse2D;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.net.URLConnection;
 
 import javax.swing.JPanel;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.xpath.XPath;
-import javax.xml.xpath.XPathConstants;
-import javax.xml.xpath.XPathExpression;
-import javax.xml.xpath.XPathExpressionException;
-import javax.xml.xpath.XPathFactory;
 
 import org.apache.commons.io.IOUtils;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
 
 public class GamePanel extends JPanel {
     /**
@@ -35,7 +20,7 @@ public class GamePanel extends JPanel {
      */
     private static final long serialVersionUID = 1L;
 
-    @Override
+    //@Override
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.LIGHT_GRAY);
@@ -65,7 +50,11 @@ public class GamePanel extends JPanel {
             System.out.println("s=" + s);
             String[] points = s.split(";");
             //            System.out.println("points.length=" + points.length);
-            for (String p : points) {
+
+            // !1 changed only for compilation under maven 2.2.1 !!! Use more new version of maven: 3.0.4 or later !!!"
+            //for (String p : points) {
+            for (int i = 0; i < points.length; ++i) {
+                String p = points[i]; // !1 added only for compilation under maven 2.2.1 !!! Use more new version of maven: 3.0.4 or later !!!"
                 String[] coord = p.split(",");
                 //                System.out.println("coord.length=" + coord.length);
                 Integer x = Integer.valueOf(coord[0]);
@@ -73,9 +62,13 @@ public class GamePanel extends JPanel {
                 //                System.out.println("x=" + x + ", y=" + y);
                 g2d.setColor(Color.BLUE);
                 int size = 10;
-                g2d.fillRect(Integer.valueOf(coord[0]) * size, Integer.valueOf(coord[1]) * size, size, size);
+                // !1 changed only for compilation under maven 2.2.1 !!! Use more new version of maven: 3.0.4 or later !!!"
+                //g2d.fillRect(Integer.valueOf(coord[0]) * size, Integer.valueOf(coord[1]) * size, size, size);
+                g2d.fillRect(Integer.valueOf(coord[0]).intValue() * size, Integer.valueOf(coord[1]).intValue() * size, size, size);
                 g2d.setColor(Color.BLACK);
-                g2d.drawRect(Integer.valueOf(coord[0]) * size, Integer.valueOf(coord[1]) * size, size, size);
+                // !1 changed only for compilation under maven 2.2.1 !!! Use more new version of maven: 3.0.4 or later !!!"
+                //g2d.drawRect(Integer.valueOf(coord[0]) * size, Integer.valueOf(coord[1]) * size, size, size);
+                g2d.drawRect(Integer.valueOf(coord[0]).intValue() * size, Integer.valueOf(coord[1]).intValue() * size, size, size);
             }
             in.close();
         } catch (MalformedURLException e) {
