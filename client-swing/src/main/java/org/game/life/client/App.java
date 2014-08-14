@@ -20,7 +20,7 @@ public class App
         //JLabel emptyLabel = new JLabel("hi");
         //frame.getContentPane().add(emptyLabel, BorderLayout.CENTER);
         frame.getContentPane().add(p, BorderLayout.CENTER);
-        frame.setSize(500, 300);
+        frame.setSize(1000, 600);
         //frame.pack();
         frame.setVisible(true);
         

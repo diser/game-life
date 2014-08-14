@@ -20,6 +20,46 @@ public class Worker extends Thread {
                 f.addAlive(ix, iy);
             }
         }
+        for (int ix = 8; ix <= 14; ++ix) {
+            for (int iy = 8; iy <= 13; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
+        for (int ix = 28; ix <= 34; ++ix) {
+            for (int iy = 30; iy <= 40; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
+        for (int ix = 24; ix <= 26; ++ix) {
+            for (int iy = 4; iy <= 6; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
+        for (int ix = 34; ix <= 36; ++ix) {
+            for (int iy = 4; iy <= 6; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
+        for (int ix = 44; ix <= 46; ++ix) {
+            for (int iy = 4; iy <= 6; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
+        for (int ix = 24; ix <= 26; ++ix) {
+            for (int iy = 24; iy <= 26; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
+        for (int ix = 33; ix <= 35; ++ix) {
+            for (int iy = 24; iy <= 26; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
+        for (int ix = 42; ix <= 46; ++ix) {
+            for (int iy = 24; iy <= 26; ++iy) {
+                f.addAlive(ix, iy);
+            }
+        }
     }
 
     @Override

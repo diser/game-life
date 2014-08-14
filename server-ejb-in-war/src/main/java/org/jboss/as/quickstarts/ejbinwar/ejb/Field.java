@@ -11,8 +11,8 @@ import java.util.Map;
 // iY
 
 public class Field {
-    final int xMax = 10;
-    final int yMax = 10;
+    final int xMax = 50;
+    final int yMax = 50;
 
     //ArrayList<ArrayList<Point>> aliveOld;
     Map<Integer, Map<Integer, Point>> aliveOld;

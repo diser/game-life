@@ -3,6 +3,7 @@ package org.game.life.client;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -24,7 +25,7 @@ public class GamePanel extends JPanel {
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
         g2d.setColor(Color.LIGHT_GRAY);
-        g2d.fillRect(0, 0, 500, 500);
+        g2d.fillRect(0, 0, 5000, 5000);
         paintAlive(g2d);
     }
 
@@ -46,7 +47,8 @@ public class GamePanel extends JPanel {
             int labelStart = body.indexOf("<label>");
             int labelEnd = body.indexOf("</label>", labelStart + 7);
             String s = body.substring(labelStart + 7, labelEnd).trim();
-            g2d.drawString("s=" + s, 25, 155);
+            Rectangle r = g2d.getClipBounds();
+            g2d.drawString("s=" + s, 25, r.height - 25);
             System.out.println("s=" + s);
             String[] points = s.split(";");
             //            System.out.println("points.length=" + points.length);
