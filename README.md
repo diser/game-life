@@ -25,7 +25,7 @@ Clients and servers for game Life
   mvn   clean install
 2.4. Run Swing client by command:
   cd   game-life/client-swing/target
-  java -cp client-1.0-SNAPSHOT.jar   org.game.life.client.App
+  java -cp client-1.0-SNAPSHOT.jar:../lib/commons-io-2.4.jar   org.game.life.client.App
 
 
 
@@ -47,7 +47,7 @@ Clients and servers for game Life
 3.3. Enable jboss-ejb-in-war.war on JBoss Application Server 7. You can do this by Administration console http://localhost:9990/.
 2.4. Run Swing client by command:
   cd   game-life/client-swing/target
-  java -cp client-1.0-SNAPSHOT.jar   org.game.life.client.App
+  java -cp client-1.0-SNAPSHOT.jar:../lib/commons-io-2.4.jar   org.game.life.client.App
 
 
 
